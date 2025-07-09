@@ -1,11 +1,11 @@
-<h2>Ürün Listesi</h2>
+<h2>Products List</h2>
 
 <p-table [value]="products">
   <ng-template pTemplate="header">
     <tr>
-      <th>Ad</th>
-      <th>Fiyat</th>
-      <th>İşlemler</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Options</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-product>
@@ -13,7 +13,7 @@
       <td>{{ product.name }}</td>
       <td>{{ product.price }}₺</td>
       <td>
-        <button pButton label="Sil" severity="danger"></button>
+        <button pButton label="Delete" severity="danger"></button>
       </td>
     </tr>
   </ng-template>
