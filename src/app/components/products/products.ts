@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-products',
-  imports: [],
+  imports: [CommonModule, FormsModule, InputTextModule, ButtonModule, TableModule ],
   templateUrl: './products.html',
   styleUrl: './products.css'
 })
@@ -21,5 +26,5 @@ export class Products implements OnInit {
     this.api.get<any[]>("products").subscribe((res) => (this.products = res));
   }
 
-  
+
 }
