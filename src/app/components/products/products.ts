@@ -25,6 +25,4 @@ export class Products implements OnInit {
   loadProducts(){
     this.api.get<any[]>("products").subscribe((res) => (this.products = res));
   }
-
-
 } 

@@ -1,1 +1,26 @@
-<p>auth works!</p>
+<div class="card" style="max-width: 400px; margin: auto; margin-top: 5rem;">
+  <h2 class="text-center">{{ registerMode() ? 'Register' : 'Login' }}</h2>
+
+  <div class="p-fluid">
+    <div class="field">
+      <label for="username">Username</label>
+      <input id="username" type="text" pInputText [(ngModel)]="userName" />
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="password" type="password" pInputText [(ngModel)]="password" />
+    </div>
+
+    <button 
+      pButton 
+      label="{{ registerMode() ? 'Register' : 'Login' }}" 
+      class="p-mt-2 w-full" 
+      (click)="submit()">
+    </button>
+
+    <a href="#" (click)="toggleMode()" class="block text-center mt-3">
+      {{ registerMode() ? 'Already have an account? Login' : "You don't have an account? Register" }}
+    </a>
+  </div>
+</div>

@@ -1,9 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { AuthService } from '../../services/auth';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-auth',
-  imports: [],
+  imports: [FormsModule, InputTextModule, ButtonModule],
   templateUrl: './auth.html',
   styleUrl: './auth.css'
 })
