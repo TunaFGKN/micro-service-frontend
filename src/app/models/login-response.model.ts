@@ -3,6 +3,7 @@ export interface LoginResponse {
     token: string;
     refreshToken: string;
     expiration: string;
+    userId: string;
   };
   isSuccessful: boolean;
   statusCode: number;

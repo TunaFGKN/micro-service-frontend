@@ -12,7 +12,7 @@ export class AuthService {
   
   login(userName: string, password: string) {
     return this.#http.post<LoginResponse>(`${this.baseUrl}/login`, { userName, password })
-      .pipe(tap(res => localStorage.setItem('access_token', res.data.token)));
+      .pipe(tap(res => {localStorage.setItem('access_token', res.data.token); localStorage.setItem('user_id', res.data.userId);}));
   }
 
   register(userName: string, password: string) {

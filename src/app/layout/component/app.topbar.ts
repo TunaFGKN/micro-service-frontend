@@ -49,15 +49,29 @@ import { LayoutService } from '../service/layout.service';
             
             <div class="layout-topbar-menu hidden lg:block">
                 <div class="layout-topbar-menu-content">
-                    <button type="button" class="layout-topbar-action">
+                    <button type="button" class="layout-topbar-action" routerLink="/products">
+                        <i class="pi pi-box"></i>
+                        <span>Products</span>
+                    </button>
+                    <button type="button" class="layout-topbar-action" routerLink="/carts">
+                        <i class="pi pi-shopping-cart"></i>
+                        <span>Carts</span>
+                    </button>
+                    <button type="button" class="layout-topbar-action" routerLink="/orders">
+                        <i class="pi pi-credit-card"></i>
+                        <span>Orders</span>
+                    </button>
+                    <button type="button" class="layout-topbar-action" routerLink="/calendar">
                         <i class="pi pi-calendar"></i>
                         <span>Calendar</span>
                     </button>
+                    <!--
                     <button type="button" class="layout-topbar-action">
                         <i class="pi pi-inbox"></i>
                         <span>Messages</span>
                     </button>
-                    <button type="button" class="layout-topbar-action">
+                    -->
+                    <button type="button" class="layout-topbar-action" routerLink="/login">
                         <i class="pi pi-user"></i>
                         <span>Profile</span>
                     </button>

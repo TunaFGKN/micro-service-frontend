@@ -13,7 +13,7 @@
       <td>{{ product.name }}</td>
       <td>{{ product.price }}₺</td>
       <td>
-        <button pButton label="Delete" severity="danger"></button>
+        <button pButton label="Add to Cart" severity="primary" (click)="addToCart(product.id)"></button>
       </td>
     </tr>
   </ng-template>
