@@ -1,1 +1,16 @@
-<p>carts works!</p>
+<h2>Cart</h2>
+
+<table *ngIf="cartItems.length > 0">
+  <tr>
+    <th>Product ID</th>
+    <th>Quantity</th>
+  </tr>
+  @for(item of cartItems; track item){
+    <tr>
+        <td>{{ item.productId }}</td>
+        <td>{{ item.quantity }}</td>
+    </tr>
+  }
+</table>
+
+<p *ngIf="cartItems.length === 0">Cart is empty.</p>

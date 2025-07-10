@@ -1,51 +1,31 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api';
 import { CartService } from '../../services/cart';
-import { CartItem, CreateCartRequest } from '../../models/cart.model';
+import { Cart, CartItem, CreateCartRequest } from '../../models/cart.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carts',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './carts.html',
   styleUrl: './carts.css'
 })
 export class Carts {
-  constructor(private cartService: CartService){}
   cartItems: CartItem[] = [];
 
-  // ngOnInit() {
-  //   const userId = localStorage.getItem('user_id');
-  //   this.cartService.getCart(userId).subscribe(items => this.cartItems = items);
-  // }
+  constructor(private cartService: CartService) {}
 
-  // increment(item) {
-  //   item.quantity++;
-  // }
+  ngOnInit(): void {
+    const userId = localStorage.getItem('user_id');
+    if (!userId) return;
 
-  // decrement(item) {
-  //   if (item.quantity > 1) item.quantity--;
-  // }
-
-  // removeItem(item) {
-  //   this.cartItems = this.cartItems.filter(i => i.productId !== item.productId);
-  // }
-
-  // updateCart() {
-  //   const userId = localStorage.getItem('user_id');
-  //   const payload = {
-  //     userId: userId,
-  //     items: this.cartItems.map(i => ({ productId: i.productId, quantity: i.quantity }))
-  //   };
-
-  //   this.cartService.updateCart( ,payload).subscribe(() => alert(""));
-  // }
-
-  // clearCart() {
-  //   const userId = localStorage.getItem('user_id');
-  //   this.cartService.clearCart(userId).subscribe(() => {
-  //     this.cartItems = [];
-  //     alert("");
-  //   });
-  // }
-
+    this.cartService.getCartByUserId(userId).subscribe({
+      next: (cart: Cart) => {
+        this.cartItems = cart.items || [];
+      },
+      error: err => {
+        console.error('Cart couldnt retrieved:', err);
+        this.cartItems = [];
+      }
+    });
+  }
 }
