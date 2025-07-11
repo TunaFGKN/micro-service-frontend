@@ -19,7 +19,7 @@
       (click)="submit()">
     </button>
 
-    <a href="#" (click)="toggleMode()" class="block text-center mt-3">
+    <a [routerLink]="registerMode() ? '/login' : '/register'" href="#" (click)="toggleMode()" class="block text-center mt-3">
       {{ registerMode() ? 'Already have an account? Login' : "You don't have an account? Register" }}
     </a>
   </div>

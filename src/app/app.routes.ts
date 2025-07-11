@@ -7,11 +7,19 @@ import { AppLayout } from './layout/component/app.layout';
 import { Carts } from './components/carts/carts';
 import { Orders } from './components/orders/orders';
 import { Calendar } from './components/calendar/calendar';
+import { Account } from './components/account/account';
 
 export const routes: Routes = [
     {
-        path: "login",
+        path: 'login',
         component: Auth,
+        data: { mode: 'login' },
+        canActivate: [guestGuard]
+    },
+    {
+        path: 'register',
+        component: Auth,
+        data: { mode: 'register' },
         canActivate: [guestGuard]
     },
     {
@@ -43,6 +51,9 @@ export const routes: Routes = [
             },
             {   path: 'calendar', 
                 component: Calendar 
+            },
+            {   path: 'account', 
+                component: Account 
             }
         ]
     }
